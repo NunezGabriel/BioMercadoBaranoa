@@ -6,22 +6,23 @@ La identidad usa el logo proporcionado por el equipo y una paleta salvia, crema 
 
 ## Desarrollo local
 
-Requiere Node.js 22.13 o posterior.
+Requiere Node.js 20.9 o posterior.
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-La consola indica la dirección local, normalmente `http://localhost:5173`.
+Abre `http://localhost:3000`.
+
+Para comprobar la versión de producción:
 
 ```bash
-npx tsc --noEmit
 npm run build
 npm start
 ```
 
-El proyecto usa React, TypeScript y Vinext (API de rutas de Next.js sobre Vite). El build produce un Worker compatible con Cloudflare. Las herramientas de Sites conservan la configuración de publicación en `.openai/hosting.json`; el remoto `origin` sigue siendo el repositorio de GitHub.
+El proyecto es Next.js estándar (App Router) con React y TypeScript. No usa base de datos, variables de entorno obligatorias ni servicios externos.
 
 ## Archivos principales
 
@@ -58,8 +59,13 @@ El contenido presenta el emprendimiento como un proyecto en preparación. Las pr
 
 El formulario mantiene la opción general «Sobre el compost», sin asociarla a un peso ni a una compra, y las consultas por recolección. «Proponer alianza» está acotado a acuerdos de recolección o logística de residuos, apoyo técnico al compostaje y comercialización del compost. No ofrece un programa abierto de voluntariado o inscripción. Los enlaces antiguos con `interes=colaborar` siguen abriendo la opción de alianzas.
 
-## Publicación
+## Publicación en Vercel
 
-Los commits se hacen en este repositorio. La identidad de Sites se conserva en `.openai/hosting.json`. La publicación inicial de Sites es privada para el propietario; compartir públicamente es una acción independiente.
+1. Sube los cambios a GitHub (`git push`).
+2. En [vercel.com/new](https://vercel.com/new), importa el repositorio `BioMercadoBaranoa`.
+3. Vercel detecta Next.js automáticamente. No hay que cambiar el comando de build ni el directorio de salida, ni configurar variables de entorno.
+4. Pulsa **Deploy**. Cada `git push` a `main` vuelve a publicar el sitio.
 
-Los directorios `node_modules`, `dist`, `.wrangler`, `.sites-runtime`, los archivos de entorno y los archivos temporales de publicación están excluidos de Git.
+Opcional: si se conecta un dominio propio, añade la variable `NEXT_PUBLIC_SITE_URL` (por ejemplo `https://biomercadobaranoa.com`) para que las vistas previas al compartir enlaces usen ese dominio. Sin ella se usa el dominio de producción de Vercel.
+
+Las imágenes de `public/images/` se sirven con `next/image`, que en Vercel las convierte a formatos ligeros (WebP/AVIF) y al tamaño de cada pantalla.

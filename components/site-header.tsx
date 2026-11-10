@@ -1,7 +1,8 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 const links = [
   ["/", "Inicio"],
@@ -11,8 +12,9 @@ const links = [
 ];
 export function SiteHeader() {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  useEffect(() => setOpen(false), [pathname]);
+  // El menú queda abierto solo en la ruta donde se abrió; al navegar se cierra.
+  const [openPath, setOpenPath] = useState<string | null>(null);
+  const open = openPath === pathname;
   return (
     <>
       <a className="skip-link" href="#contenido">
@@ -24,11 +26,13 @@ export function SiteHeader() {
           className="brand"
           aria-label="BioMercado Baranoa, inicio"
         >
-          <img
+          <Image
             src="/images/logo-biomercado-transparente.png"
             alt="BioMercado Baranoa"
-            width="739"
-            height="170"
+            width={739}
+            height={170}
+            sizes="260px"
+            loading="eager"
           />
         </Link>
         <nav
@@ -58,7 +62,7 @@ export function SiteHeader() {
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           aria-controls="navegacion"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpenPath(open ? null : pathname)}
         >
           {open ? <X /> : <Menu />}
         </button>

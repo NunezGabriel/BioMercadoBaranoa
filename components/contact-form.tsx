@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import {
   ArrowUpRight,
   Check,
@@ -19,18 +19,24 @@ const interests = [
   { value: "residuos", label: "Recolección", message: "consultar por la recolección de residuos vegetales de mi negocio", icon: Store },
   { value: "alianzas", label: "Proponer alianza", message: "proponer una alianza para recolección, apoyo técnico o comercialización del compost", icon: Users },
 ];
+function interestFromParam(requested: string | null) {
+  const value = requested === "colaborar" ? "alianzas" : requested;
+  return interests.some((i) => i.value === value) ? value! : "compost";
+}
 export function ContactForm() {
   const params = useSearchParams();
-  const [interest, setInterest] = useState("compost");
+  const requested = params.get("interes");
+  const [prevRequested, setPrevRequested] = useState(requested);
+  const [interest, setInterest] = useState(() => interestFromParam(requested));
   const [message, setMessage] = useState("");
   const [copyState, setCopyState] = useState("");
-  useEffect(() => {
-    const requested = params.get("interes");
-    const value = requested === "colaborar" ? "alianzas" : requested;
-    setInterest(interests.some((i) => i.value === value) ? value! : "compost");
+  // Si cambia ?interes= en la URL, se selecciona esa opción y se limpia el mensaje.
+  if (requested !== prevRequested) {
+    setPrevRequested(requested);
+    setInterest(interestFromParam(requested));
     setMessage("");
     setCopyState("");
-  }, [params]);
+  }
   const hasContact = Boolean(site.whatsapp || site.email);
   function prepare(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

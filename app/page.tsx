@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowDown,
@@ -65,9 +66,13 @@ export default function Home() {
         <div className="hero-visual">
           <Botanical />
           <div className="hero-photo">
-            <img
+            <Image
               src={site.images.compost}
               alt="Bolsa de composta con la etiqueta de BioMercado Baranoa"
+              width={1672}
+              height={941}
+              sizes="(max-width: 900px) 100vw, 55vw"
+              loading="eager"
               fetchPriority="high"
             />
             <span className="photo-reference">Imagen referencial</span>

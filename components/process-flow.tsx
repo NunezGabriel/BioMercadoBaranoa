@@ -15,11 +15,8 @@ export function ProcessFlow() {
   const [visible, setVisible] = useState(false);
   const [replay, setReplay] = useState(0);
   useEffect(() => {
-    if (!root.current) return;
-    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
-    }
+    // Con movimiento reducido, el CSS ya muestra el recorrido completo sin animar.
+    if (!root.current || !("IntersectionObserver" in window)) return;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) { setVisible(true); observer.disconnect(); }
     }, { threshold: 0.15 });

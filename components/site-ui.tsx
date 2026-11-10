@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import {
@@ -74,7 +75,13 @@ export function Photo({
 }) {
   return (
     <figure className={`photo ${className}`}>
-      <img src={src} alt={alt} loading="lazy" />
+      <Image
+        src={src}
+        alt={alt}
+        width={1400}
+        height={1050}
+        sizes="(max-width: 900px) 100vw, 50vw"
+      />
       <figcaption>Imagen referencial</figcaption>
     </figure>
   );
@@ -140,10 +147,11 @@ export function SiteFooter() {
       <div className="footer-top">
         <div>
           <Link href="/" className="brand footer-brand">
-            <img
+            <Image
               src="/images/logo-biomercado-transparente.png"
-              width="739"
-              height="170"
+              width={739}
+              height={170}
+              sizes="260px"
               alt="BioMercado Baranoa"
             />
           </Link>

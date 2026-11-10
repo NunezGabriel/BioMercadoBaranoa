@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { HandHeart, Leaf, MapPin, Sprout, Users } from "lucide-react";
 import {
@@ -52,9 +53,12 @@ export default function AboutPage() {
       </section>
       {site.images.community && (
         <figure className="community-photo">
-          <img
+          <Image
             src={site.images.community}
             alt="Imagen conceptual de manos colaborando en una siembra"
+            width={1600}
+            height={900}
+            sizes="100vw"
           />
           <figcaption>Imagen referencial</figcaption>
         </figure>
