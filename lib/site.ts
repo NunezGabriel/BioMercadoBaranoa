@@ -7,6 +7,8 @@ export const site = {
     "lupenaar1@poligran.edu.co",
     "driverat@poligran.edu.co",
     "sorellano@poligran.edu.co",
+    "ledavid@poligran.edu.co",
+    "lvelasquezg@poligran.edu.co",
   ],
   pitch: {
     src: "/images/Bio%20mercado%20Baranoa.mp4",
