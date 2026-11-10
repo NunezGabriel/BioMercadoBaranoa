@@ -10,6 +10,7 @@ import {
   Store,
   HandHeart,
   MapPin,
+  Play,
 } from "lucide-react";
 import {
   Botanical,
@@ -260,6 +261,9 @@ export default function Home() {
               <HandHeart size={16} /> Participación local
             </span>
           </div>
+          <Link href="/nosotras#nuestro-pitch" className="pitch-home-link">
+            <Play size={15} /> Ver nuestra presentación · {site.pitch.duration} min
+          </Link>
         </div>
       </section>
       <Faqs limit={3} />

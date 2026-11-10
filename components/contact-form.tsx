@@ -8,6 +8,7 @@ import {
   Copy,
   Download,
   Leaf,
+  Mail,
   MessageCircle,
   Sprout,
   Store,
@@ -37,7 +38,6 @@ export function ContactForm() {
     setMessage("");
     setCopyState("");
   }
-  const hasContact = Boolean(site.whatsapp || site.email);
   function prepare(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -80,7 +80,7 @@ export function ContactForm() {
         </span>
         <div>
           <h2>Conversemos sobre BioMercado.</h2>
-          <p>Prepara una consulta en pocos pasos.</p>
+          <p>Prepara tu consulta y elige WhatsApp o correo.</p>
         </div>
       </div>
       <form
@@ -186,8 +186,8 @@ export function ContactForm() {
             <CheckCircle2 size={20} /> Tu mensaje está listo
           </h3>
           <p>
-            Revísalo y compártelo con el equipo por el canal que tengan
-            acordado.
+            Revisa tu mensaje y elige cómo enviarlo. Por correo, el borrador
+            se dirigirá a los tres correos del equipo.
           </p>
           <textarea
             aria-label="Mensaje preparado"
@@ -196,25 +196,26 @@ export function ContactForm() {
             rows={7}
           />
           <div className="message-actions">
+            {site.whatsapp && (
+              <a
+                href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle size={17} /> Enviar por WhatsApp
+              </a>
+            )}
+            {site.emails.length > 0 && (
+              <a href={`mailto:${site.emails.join(",")}?subject=${encodeURIComponent("Consulta BioMercado Baranoa")}&body=${encodeURIComponent(message)}`}>
+                <Mail size={17} /> Abrir correo al equipo
+              </a>
+            )}
             <button onClick={copy}>
               <Copy size={17} /> Copiar mensaje
             </button>
             <button onClick={download}>
               <Download size={17} /> Descargar
             </button>
-            {hasContact && (
-              <a
-                href={
-                  site.whatsapp
-                    ? `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`
-                    : `mailto:${site.email}?subject=Consulta%20BioMercado&body=${encodeURIComponent(message)}`
-                }
-                target={site.whatsapp ? "_blank" : undefined}
-                rel="noopener noreferrer"
-              >
-                <MessageCircle size={17} /> Compartir
-              </a>
-            )}
           </div>
           <span className="copy-status" role="status">
             {copyState}

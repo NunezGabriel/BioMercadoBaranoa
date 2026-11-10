@@ -1503,6 +1503,52 @@ h2 {
 .contact-note > svg {
   color: #698a4f;
 }
+.contact-channels {
+  position: relative;
+  z-index: 2;
+  max-width: 390px;
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--white);
+}
+.contact-channels h2 {
+  margin-bottom: 18px;
+  font-size: 20px;
+  letter-spacing: -.035em;
+}
+.contact-whatsapp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--pale);
+  color: var(--green);
+}
+.contact-whatsapp:hover { background: #d9e6ca; }
+.contact-whatsapp strong,
+.contact-whatsapp span > span { display: block; font-size: 14px; }
+.contact-email-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.contact-channels ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.contact-channels li a {
+  display: block;
+  width: fit-content;
+  padding: 7px 0;
+  font-size: 14px;
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
 .contact-copy > .botanical {
   left: 100px;
   bottom: -120px;
@@ -3359,6 +3405,174 @@ textarea::placeholder {
   15% { opacity: 1; }
   85% { opacity: 1; }
   100% { top: 100%; opacity: 0; }
+}
+.pitch-card {
+  overflow: hidden;
+  border: 1px solid #cfdbc3;
+  border-radius: 32px;
+  background: #e5ecd9;
+  box-shadow: 0 18px 50px #263c2010;
+}
+.pitch-topline,
+.pitch-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 20px 28px;
+  font-size: 13px;
+}
+.pitch-topline > span,
+.pitch-caption a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+.pitch-topline > span:first-child { font-weight: 600; }
+.pitch-topline > span:last-child { color: var(--muted); }
+.pitch-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #14261c;
+  overflow: hidden;
+}
+.pitch-player video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+.pitch-player video:focus-visible { outline-offset: -4px; }
+.pitch-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 70px 26px;
+  color: #f0f3e6;
+  background: radial-gradient(ellipse at 80% 10%, #577346 0%, transparent 65%), #2a442b;
+  text-align: center;
+  isolation: isolate;
+}
+.pitch-cover:focus-visible { outline: 3px solid #d4e7b3; outline-offset: -8px; }
+.pitch-cover .pitch-leaves {
+  z-index: -1;
+  width: 55%;
+  height: 110%;
+  right: -6%;
+  bottom: -18%;
+  color: #d6e4b9;
+  opacity: .24;
+  transform: rotate(-12deg);
+}
+.pitch-cover-brand {
+  position: absolute;
+  top: 30px;
+  left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: .15em;
+}
+.pitch-cover-title {
+  font-size: clamp(28px, 4.5vw, 62px);
+  font-weight: 600;
+  letter-spacing: -.055em;
+  line-height: 1.12;
+}
+.pitch-cover-title > span { color: #c7dda9; }
+.pitch-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  font-size: 14px;
+}
+.pitch-play-circle {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  padding-left: 4px;
+  border-radius: 50%;
+  background: #e5eed4;
+  color: #34532b;
+  box-shadow: 0 0 0 8px #e5eed410;
+  transition: transform .3s, box-shadow .3s;
+}
+.pitch-cover-bottom {
+  position: absolute;
+  bottom: 25px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #c7d5bb;
+  font-size: 11px;
+}
+.pitch-caption > span { color: var(--muted); }
+.pitch-caption a { color: var(--green); font-weight: 600; }
+.pitch-error { padding: 0 28px 20px; font-size: 13px; }
+.pitch-error a { text-decoration: underline; text-underline-offset: 3px; }
+.pitch-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 18px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border: 1px solid #c8d6ba;
+  border-radius: 30px;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .pitch-cover:hover .pitch-play-circle { transform: scale(1.08); box-shadow: 0 0 0 13px #e5eed410; }
+  .photo img { transition: transform .8s cubic-bezier(.22, 1, .36, 1); }
+  .photo:hover img { transform: scale(1.025); }
+  .uses-grid > article,
+  .team-grid > article,
+  .values-list > article { transition: translate .3s ease; }
+  .uses-grid > article:hover,
+  .team-grid > article:hover,
+  .values-list > article:hover { translate: 0 -4px; }
+  .button-icon > svg,
+  .text-link > svg,
+  .pitch-caption a > svg { transition: translate .25s ease; }
+  .button:hover .button-icon > svg,
+  .text-link:hover > svg,
+  .pitch-caption a:hover > svg { translate: 2px -2px; }
+  .pitch-home-link { transition: background .25s ease, translate .25s ease; }
+  .pitch-home-link:hover { background: #e0eace; translate: 0 -2px; }
+}
+@media (max-width: 760px) {
+  .pitch-card { border-radius: 24px; }
+  .pitch-topline, .pitch-caption { padding: 16px 18px; font-size: 12px; }
+  .pitch-cover { padding: 45px 20px 28px; }
+  .pitch-cover-brand { top: 16px; left: 18px; font-size: 9px; letter-spacing: .08em; gap: 7px; }
+  .pitch-cover-brand svg { width: 16px; height: 16px; }
+  .pitch-cover-title { font-size: clamp(23px, 5.2vw, 38px); }
+  .pitch-play { margin-top: 16px; font-size: 12px; gap: 12px; }
+  .pitch-play-circle { width: 44px; height: 44px; box-shadow: 0 0 0 5px #e5eed410; }
+  .pitch-play-circle svg { width: 19px; height: 19px; }
+  .pitch-cover-bottom { display: none; }
+  .pitch-error { padding: 0 18px 18px; }
+}
+@media (max-width: 400px) {
+  .pitch-cover { padding: 36px 14px 12px; }
+  .pitch-cover-title { font-size: 22px; line-height: 1.08; }
+  .pitch-play { margin-top: 10px; font-size: 11px; gap: 9px; }
+  .pitch-play-circle { width: 36px; height: 36px; }
+  .pitch-cover-brand { top: 12px; font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .process-flow .flow-connection::before { transform: none; }

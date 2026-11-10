@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { site } from "@/lib/site";
+import { PitchVideo } from "@/components/pitch-video";
 import { HandHeart, Leaf, MapPin, Sprout, Users } from "lucide-react";
 import {
   Botanical,
@@ -63,6 +64,7 @@ export default function AboutPage() {
           <figcaption>Imagen referencial</figcaption>
         </figure>
       )}
+      <PitchVideo />
       <section className="our-story section-space">
         <Eyebrow>El origen de BioMercado</Eyebrow>
         <h2>

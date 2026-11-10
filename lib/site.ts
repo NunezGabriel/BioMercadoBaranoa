@@ -1,9 +1,17 @@
 export const site = {
   name: "BioMercado Baranoa",
   location: "Baranoa, Atlántico",
-  // Completar con canales aprobados antes de la apertura pública.
-  whatsapp: "",
-  email: "",
+  whatsapp: "573008504144",
+  whatsappLabel: "+57 300 850 4144",
+  emails: [
+    "lupenaar1@poligran.edu.co",
+    "driverat@poligran.edu.co",
+    "sorellano@poligran.edu.co",
+  ],
+  pitch: {
+    src: "/images/Bio%20mercado%20Baranoa.mp4",
+    duration: "11:33",
+  },
   product: {
     name: "Compost BioMercado",
     // Completar solo cuando el equipo confirme el precio por kilogramo, en COP.

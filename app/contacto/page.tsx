@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { HandHeart, MapPin } from "lucide-react";
+import { HandHeart, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Botanical, Breadcrumb, Eyebrow } from "@/components/site-ui";
 import { ContactForm } from "@/components/contact-form";
+import { site } from "@/lib/site";
 export const metadata: Metadata = { title: "Contacto" };
 export default function ContactPage() {
   return (
@@ -30,12 +31,25 @@ export default function ContactPage() {
               <span>Atlántico, Colombia</span>
             </div>
           </div>
+          <div className="contact-channels">
+            <h2>Hablemos directamente</h2>
+            <a className="contact-whatsapp" href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent("Hola, equipo de BioMercado Baranoa. Quisiera conocer más sobre su proyecto.")}`}
+              target="_blank" rel="noopener noreferrer">
+              <MessageCircle size={21} />
+              <span><strong>WhatsApp</strong><span>{site.whatsappLabel}</span></span>
+            </a>
+            <div className="contact-email-heading"><Mail size={19} /> Correos del equipo</div>
+            <ul>
+              {site.emails.map((email) => (
+                <li key={email}><a href={`mailto:${email}`}>{email}</a></li>
+              ))}
+            </ul>
+          </div>
           <div className="contact-note">
             <HandHeart size={22} />
             <p>
-              Estamos preparando el proyecto y definiendo el canal de atención.
-              Por ahora puedes preparar tu mensaje y copiarlo para compartirlo
-              con el equipo.
+              Escríbenos directamente o prepara tu consulta con el formulario.
+              Podrás revisarla y enviarla desde WhatsApp o tu aplicación de correo.
             </p>
           </div>
           <Botanical />

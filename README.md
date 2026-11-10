@@ -47,19 +47,23 @@ Para incorporar las imágenes nuevas, guardarlas en `public/images/` y actualiza
 
 Inicio presenta el producto y enlaza a Nuestro compost. La ficha explica la venta por kilogramo y las presentaciones según la necesidad del comprador, como plantean el Excel y el PPT. No fija pesos por bolsa ni incluye un contador de cantidades. Las acciones «Realizar pedido» y «Hacer una consulta» preparan mensajes distintos para acordar cantidad, presentación, precio y entrega con el equipo; no registran ventas ni reservan existencias.
 
-Para activar los dos enlaces de WhatsApp, completar `site.whatsapp` en `lib/site.ts` con el número oficial y código de país. Cada enlace abre su mensaje preparado, que el cliente debe enviar. Mientras el número esté vacío, los botones permiten preparar y copiar el mensaje, con un aviso de que no se envía. `site.product.pricePerKgCOP` puede configurarse con el precio aprobado por kilogramo en pesos colombianos; `null` muestra «Precio por consultar».
+Los enlaces de pedidos y consultas de WhatsApp están conectados al número `+57 300 850 4144`, configurado en `site.whatsapp` en `lib/site.ts`. Cada enlace abre un mensaje preparado, que el cliente debe enviar en WhatsApp. `site.product.pricePerKgCOP` puede configurarse con el precio aprobado por kilogramo en pesos colombianos; `null` muestra «Precio por consultar».
 
 El recorrido animado de cuatro nodos está en `components/process-flow.tsx` y se muestra únicamente en Inicio. Se reproduce al entrar en pantalla y puede repetirse con «Ver recorrido». Se adapta a disposición vertical en móvil y respeta la preferencia de movimiento reducido. No requiere video ni dependencias adicionales.
 
-El equipo todavía no ha facilitado un teléfono o correo oficial. Por eso el formulario **prepara un mensaje local**, que el visitante puede editar, copiar o descargar; no envía ni almacena datos en un servidor. No hay pagos, reservas, cuentas ni una base de datos de clientes.
+Contacto muestra el WhatsApp y los tres correos facilitados por el usuario: `lupenaar1@poligran.edu.co`, `driverat@poligran.edu.co` y `sorellano@poligran.edu.co`. Los correos se mantienen en `site.emails` y tienen enlaces individuales.
 
-Cuando el equipo confirme sus canales, completar `whatsapp` (solo dígitos con código de país) o `email` en `lib/site.ts`. El resultado del formulario mostrará entonces el enlace correspondiente para que el visitante comparta su consulta. También debe revisarse el texto informativo de `app/contacto/page.tsx` para reflejar el canal habilitado.
+El formulario prepara un mensaje local, editable, con acciones separadas para WhatsApp y correo. «Abrir correo al equipo» abre el cliente de correo con los tres destinatarios, el asunto y el mensaje; el visitante confirma el envío. También puede copiarlo o descargarlo. No envía automáticamente ni almacena datos en un servidor, y los mensajes de WhatsApp no se reenvían a los correos. No hay pagos, reservas, cuentas ni una base de datos de clientes.
 
 El contenido presenta el emprendimiento como un proyecto en preparación. Las presentaciones concretas, el precio, la disponibilidad y las condiciones de entrega siguen pendientes de confirmación. No hay carrito ni cobro en línea.
 
 El formulario mantiene la opción general «Sobre el compost», sin asociarla a un peso ni a una compra, y las consultas por recolección. «Proponer alianza» está acotado a acuerdos de recolección o logística de residuos, apoyo técnico al compostaje y comercialización del compost. No ofrece un programa abierto de voluntariado o inscripción. Los enlaces antiguos con `interes=colaborar` siguen abriendo la opción de alianzas.
 
 ## Publicación en Vercel
+
+El pitch original está en `public/images/Bio mercado Baranoa.mp4` (11:33, H.264/AAC, aproximadamente 62 MB). La sección de Nosotras usa `components/pitch-video.tsx`, con portada propia, controles nativos, reproducción únicamente al pulsar y `preload="none"`. La ruta pública está codificada en `site.pitch.src`. Inicio incluye un enlace directo a la sección. Asegúrate de incluir el MP4 en el commit al publicar.
+
+Las apariciones suaves al hacer scroll se gestionan con `components/site-motion.tsx` y la API de animaciones del navegador, sin dependencias nuevas. Los bloques se animan una vez al entrar en pantalla, con pequeñas secuencias en tarjetas. El contenido permanece visible sin JavaScript y se respeta la preferencia de movimiento reducido, incluso si cambia durante la visita. El recorrido por nodos mantiene su propia animación.
 
 1. Sube los cambios a GitHub (`git push`).
 2. En [vercel.com/new](https://vercel.com/new), importa el repositorio `BioMercadoBaranoa`.

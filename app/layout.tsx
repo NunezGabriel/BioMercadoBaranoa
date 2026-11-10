@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-ui";
+import { SiteMotion } from "@/components/site-motion";
 import "./globals.css";
 
 // Dominio público del sitio. En Vercel se toma automáticamente el dominio de
@@ -38,6 +39,7 @@ export default function RootLayout({
           <SiteHeader />
           <main id="contenido">{children}</main>
           <SiteFooter />
+          <SiteMotion />
         </div>
       </body>
     </html>
