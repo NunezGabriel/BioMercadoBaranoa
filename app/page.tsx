@@ -16,31 +16,33 @@ import {
   Eyebrow,
   Faqs,
   JoinBanner,
+  Photo,
 } from "@/components/site-ui";
 import { site } from "@/lib/site";
+import { ProcessFlow } from "@/components/process-flow";
 export default function Home() {
   return (
     <>
       <section className="home-hero">
         <div className="hero-copy">
-          <Eyebrow>Una idea que nace en Baranoa</Eyebrow>
+          <Eyebrow>BioMercado Baranoa · Compost orgánico</Eyebrow>
           <h1>
-            Una nueva vida
+            Compost para
             <br />
-            para nuestros
+            seguir
             <br />
-            <span>residuos.</span>
+            <span>creciendo.</span>
             <Leaf className="title-leaf" strokeWidth={1.3} />
           </h1>
           <p>
-            Lo que hoy termina en el mercado puede volver a la tierra. Estamos
-            preparando un proyecto para convertir residuos orgánicos en compost
-            y oportunidades para nuestra comunidad.
+            Conoce nuestro compost orgánico. Una propuesta de cinco
+            emprendedoras para aprovechar los residuos vegetales de Baranoa y
+            devolverlos a cultivos, viveros y jardines.
           </p>
           <div className="hero-actions">
-            <ButtonLink href="/recoleccion">Conoce el proyecto</ButtonLink>
-            <Link className="quiet-link" href="/compost">
-              Descubre el compost <ArrowUpRight size={18} />
+            <ButtonLink href="/compost">Conoce nuestro compost</ButtonLink>
+            <Link className="quiet-link" href="/nosotras">
+              Quiénes somos <ArrowUpRight size={18} />
             </Link>
           </div>
           <div className="hero-location">
@@ -64,15 +66,15 @@ export default function Home() {
           <Botanical />
           <div className="hero-photo">
             <img
-              src={site.images.hero}
-              alt="Imagen referencial de compost que vuelve a la tierra entre plantas verdes"
+              src={site.images.compost}
+              alt="Bolsa de composta con la etiqueta de BioMercado Baranoa"
               fetchPriority="high"
             />
             <span className="photo-reference">Imagen referencial</span>
           </div>
           <div className="hero-photo-top">
             <span>
-              <span className="status-dot" /> Economía circular
+              <span className="status-dot" /> Nuestro compost
             </span>
             <span className="round-outline">
               <ArrowUpRight size={23} />
@@ -83,11 +85,11 @@ export default function Home() {
               <Sprout size={28} strokeWidth={1.6} />
             </span>
             <div>
-              <small>EL CICLO VUELVE A EMPEZAR</small>
+              <small>DEL MERCADO A LA TIERRA</small>
               <strong>
-                Menos desperdicio.
+                Compost orgánico.
                 <br />
-                Más posibilidades.
+                Nuevas oportunidades.
               </strong>
             </div>
           </div>
@@ -106,18 +108,32 @@ export default function Home() {
         <span>
           <HandHeart /> Local de corazón
         </span>
-        <a href="#como-funciona" aria-label="Ver cómo funciona">
+        <a href="#nuestro-compost" aria-label="Conocer nuestro compost">
           <ArrowDown size={20} />
         </a>
       </div>
+      <section className="product-spotlight section-space" id="nuestro-compost">
+        <Photo
+          src={site.images.spotlight}
+          alt="Personas compartiendo residuos vegetales y trabajando con compost y semilleros"
+          className="product-growth-photo"
+        />
+        <div className="product-spotlight-copy">
+          <Eyebrow>Nuestro producto</Eyebrow>
+          <h2>Compost BioMercado.<br /><span className="muted-title">De vuelta a tu tierra.</span></h2>
+          <p>Compost a partir del aprovechamiento de residuos vegetales, pensado para quienes cultivan y cuidan espacios verdes.</p>
+          <p>Venta por kilogramo y empaques según la necesidad del comprador. Consulta las presentaciones, el precio y la disponibilidad con el equipo.</p>
+          <ButtonLink href="/compost#consulta-producto">Consultar por el producto</ButtonLink>
+        </div>
+      </section>
       <section className="intro-section section-space" id="como-funciona">
         <div className="section-heading">
           <div>
-            <Eyebrow>Una idea sencilla. Un cambio compartido.</Eyebrow>
+            <Eyebrow>El origen de nuestro compost</Eyebrow>
             <h2>
-              Todo está conectado.
+              Del mercado a la bolsa.
               <br />
-              <span className="muted-title">También lo que desechamos.</span>
+              <span className="muted-title">Un proceso que transforma.</span>
             </h2>
           </div>
           <p>
@@ -125,46 +141,7 @@ export default function Home() {
             darles una nueva vida. Así imaginamos el recorrido.
           </p>
         </div>
-        <div className="process-grid">
-          {[
-            {
-              icon: Store,
-              n: "01",
-              title: "Separamos",
-              text: "Frutas y verduras, desde su origen y sin mezclarlas con otros residuos.",
-            },
-            {
-              icon: Recycle,
-              n: "02",
-              title: "Recolectamos",
-              text: "Con rutas y horarios que acordaremos con los comercios participantes.",
-            },
-            {
-              icon: Leaf,
-              n: "03",
-              title: "Transformamos",
-              text: "El compostaje convierte la materia orgánica en un recurso para la tierra.",
-            },
-            {
-              icon: Sprout,
-              n: "04",
-              title: "Volvemos a crecer",
-              text: "Compost para agricultores, viveros, jardines y nuevas oportunidades.",
-            },
-          ].map((s, i) => (
-            <article className="process-item" key={s.n}>
-              <div className="process-top">
-                <span className="process-icon">
-                  <s.icon size={27} strokeWidth={1.5} />
-                </span>
-                <span className="step-number">{s.n}</span>
-                {i < 3 && <ArrowRight className="step-arrow" size={20} />}
-              </div>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
-            </article>
-          ))}
-        </div>
+        <ProcessFlow />
       </section>
       <section className="path-section section-space">
         <div className="section-heading">
@@ -222,8 +199,8 @@ export default function Home() {
                 merece lo bueno.
               </h3>
               <p>
-                Descubre el compost que queremos crear para cultivos, viveros y
-                espacios verdes.
+                Conoce el compost que estamos preparando para
+                cultivos, viveros y jardines.
               </p>
               <span className="card-link">
                 Me interesa el compost <ArrowRight size={17} />

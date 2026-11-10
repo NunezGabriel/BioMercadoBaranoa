@@ -29,8 +29,8 @@ export default function AboutPage() {
             accent="echan raíces juntas."
             description="Somos un equipo de cinco emprendedoras que encontró en los residuos orgánicos una oportunidad para cuidar el entorno y aportar a la comunidad de Baranoa."
           />
-          <ButtonLink href="/contacto?interes=colaborar">
-            Quiero colaborar
+          <ButtonLink href="/contacto?interes=alianzas">
+            Proponer una alianza
           </ButtonLink>
         </div>
         <div className="about-art">
@@ -74,9 +74,9 @@ export default function AboutPage() {
           </p>
           <p>
             De esa observación nace BioMercado Baranoa: una propuesta para
-            conectar comercios, compostaje y personas que cultivan. Estamos
-            dando forma al proyecto, validando cómo hacerlo posible junto a la
-            comunidad.
+            conectar comercios, compostaje y personas que cultivan. Nuestro
+            producto previsto es compost para comercializar por kilogramo. Estamos preparando
+            su producción y las condiciones para ofrecerlo a nuestros clientes.
           </p>
         </div>
       </section>

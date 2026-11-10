@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Flower2, Leaf, Shovel, Sprout } from "lucide-react";
 import {
-  Botanical,
   Breadcrumb,
-  ButtonLink,
   Eyebrow,
   Faqs,
   JoinBanner,
@@ -11,7 +9,11 @@ import {
   Photo,
 } from "@/components/site-ui";
 import { site } from "@/lib/site";
-export const metadata: Metadata = { title: "Compost" };
+import { ProductInquiry } from "@/components/product-inquiry";
+export const metadata: Metadata = {
+  title: "Compost orgánico",
+  description: "Conoce el compost de BioMercado Baranoa. Venta por kilogramo y presentaciones según la necesidad del comprador. Consulta precio y disponibilidad.",
+};
 export default function CompostPage() {
   return (
     <>
@@ -19,46 +21,31 @@ export default function CompostPage() {
       <section className="inner-hero compost-hero">
         <div>
           <PageIntro
-            label="De vuelta a la tierra"
-            title="Una segunda vida."
-            accent="Muchas nuevas raíces."
-            description="El compost es el resultado del aprovechamiento de la materia orgánica. Queremos producirlo localmente para conectar los residuos del mercado con cultivos, viveros y jardines."
+            label="Nuestro producto · BioMercado Baranoa"
+            title="Compost orgánico."
+            accent="Para lo que cultivas."
+            description="Estamos preparando un compost a partir de residuos vegetales del mercado y negocios de alimentos de Baranoa. Una propuesta para agricultores, viveros y personas que cuidan sus jardines."
           />
-          <ButtonLink href="/contacto?interes=compost">
-            Me interesa el compost
-          </ButtonLink>
-          <span className="under-button-note">
-            Producto en desarrollo. Disponibilidad por confirmar.
-          </span>
+          <ProductInquiry />
         </div>
         <div className="inner-visual">
           <Photo
-            src={site.images.compost}
-            alt="Imagen referencial del trabajo con compost"
+            src={site.images.compostDetail}
+            alt="Tres bolsas de composta BioMercado Baranoa sobre una mesa en el campo"
+            className="compost-product-photo"
           />
           <span className="image-sticker">
             <Sprout size={25} />
             <span>
-              Materia orgánica.
+              Compost BioMercado
               <br />
-              <strong>Nuevas posibilidades.</strong>
+              <strong>Consulta nuestras presentaciones</strong>
             </span>
           </span>
         </div>
       </section>
       <section className="compost-story section-space">
-        <div className="soft-panel">
-          <Botanical />
-          <span className="giant-leaf">
-            <Leaf strokeWidth={0.8} />
-          </span>
-          <span className="overline">EL TIEMPO TAMBIÉN TRANSFORMA</span>
-          <h2>
-            La naturaleza
-            <br />
-            conoce el camino.
-          </h2>
-        </div>
+        <Photo src={site.images.hero} alt="Brote verde en un montículo de compost" className="product-growth-photo" />
         <div>
           <Eyebrow>Un proceso con cuidado</Eyebrow>
           <h2>
@@ -71,9 +58,9 @@ export default function CompostPage() {
             la humedad y la aireación, y dar tiempo a su maduración.
           </p>
           <p>
-            Antes de ofrecer el producto, el equipo deberá validar el proceso,
-            su calidad y las presentaciones. Queremos crecer sobre una base bien
-            cuidada.
+            Antes de su venta, validaremos el proceso, la calidad del compost
+            y sus presentaciones, junto con las
+            indicaciones para utilizarlo.
           </p>
           <ul className="check-list">
             <li>
@@ -127,8 +114,8 @@ export default function CompostPage() {
         <div className="availability-note">
           <span className="status-dot" />
           <p>
-            Las presentaciones, cantidades y condiciones de entrega se definirán
-            tras la validación del producto.
+            Consulta por la cantidad, el empaque, el precio y la disponibilidad
+            antes de acordar una compra o entrega.
           </p>
         </div>
       </section>

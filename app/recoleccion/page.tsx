@@ -24,7 +24,7 @@ export default function CollectionPage() {
             description="Estamos preparando una alternativa para separar y aprovechar los residuos de frutas y verduras del mercado de Baranoa. El primer paso lo damos desde cada comercio."
           />
           <ButtonLink href="/contacto?interes=residuos">
-            Me interesa participar
+            Consultar por la recolección
           </ButtonLink>
           <span className="under-button-note">
             Conoce la propuesta. Las rutas aún están por definir.
@@ -33,7 +33,7 @@ export default function CollectionPage() {
         <div className="inner-visual">
           <Photo
             src={site.images.collection}
-            alt="Referencia de recipientes para residuos orgánicos en un mercado"
+            alt="Manos con guantes separando cáscaras de frutas y restos vegetales en un recipiente"
           />
           <span className="image-sticker">
             <Store size={23} />

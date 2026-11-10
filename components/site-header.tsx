@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 const links = [
   ["/", "Inicio"],
-  ["/recoleccion", "Recolección"],
-  ["/compost", "Compost"],
+  ["/compost", "Nuestro compost"],
   ["/nosotras", "Nosotras"],
+  ["/recoleccion", "Recolección"],
 ];
 export function SiteHeader() {
   const pathname = usePathname();
@@ -25,10 +25,10 @@ export function SiteHeader() {
           aria-label="BioMercado Baranoa, inicio"
         >
           <img
-            src="/images/logo-biomercado.png"
+            src="/images/logo-biomercado-transparente.png"
             alt="BioMercado Baranoa"
-            width="330"
-            height="76"
+            width="739"
+            height="170"
           />
         </Link>
         <nav

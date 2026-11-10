@@ -1,6 +1,6 @@
 # BioMercado Baranoa
 
-Web de presentación del proyecto de compostaje y economía circular de Baranoa, Atlántico. Incluye cinco páginas adaptadas a escritorio y móvil: Inicio, Recolección, Compost, Nosotras y Contacto.
+Web de marca y producto de BioMercado Baranoa, Atlántico. Presenta la propuesta de venta de compost por kilogramo y empaques según la necesidad del comprador, sin fijar tamaños de bolsa. Incluye cinco páginas adaptadas a escritorio y móvil: Inicio, Nuestro compost, Nosotras, Recolección y Contacto.
 
 La identidad usa el logo proporcionado por el equipo y una paleta salvia, crema y verde bosque inspirada en la referencia visual del proyecto.
 
@@ -36,17 +36,27 @@ El proyecto usa React, TypeScript y Vinext (API de rutas de Next.js sobre Vite).
 
 ## Imágenes
 
-El logo `public/images/logo-biomercado.png` es el archivo proporcionado por el usuario y conserva sus proporciones y fondo blanco. Las fotografías iniciales proceden de la presentación del proyecto y se muestran como referencias, no como evidencia de instalaciones propias.
+El logo `public/images/logo-biomercado-transparente.png` corresponde al archivo transparente `nobglogo.png` proporcionado por el usuario. El encabezado y el pie de página no tienen un recuadro blanco. La ruta nueva evita reutilizar la imagen anterior desde la caché del navegador.
+
+Las imágenes aportadas por el usuario están integradas sin modificar. La portada usa `compost-biomercado-bolsa.png`; la cabecera de Nuestro compost usa `compost-presentaciones-campo.png`, mediante `site.images.compostDetail`. La escena `compost-comunidad.png` se muestra en la sección «Compost BioMercado. De vuelta a tu tierra.» de Inicio, mediante `site.images.spotlight`. `brote-compost.png` y `recoleccion-vegetales.png` ilustran el compost y la separación de residuos.
 
 Para incorporar las imágenes nuevas, guardarlas en `public/images/` y actualizar sus rutas en `lib/site.ts`. Los campos `hero`, `collection`, `compost` y `community` corresponden a las cuatro composiciones descritas en `IMAGE_PROMPTS.md`.
 
 ## Contacto y alcance actual
 
+Inicio presenta el producto y enlaza a Nuestro compost. La ficha explica la venta por kilogramo y las presentaciones según la necesidad del comprador, como plantean el Excel y el PPT. No fija pesos por bolsa ni incluye un contador de cantidades. Las acciones «Realizar pedido» y «Hacer una consulta» preparan mensajes distintos para acordar cantidad, presentación, precio y entrega con el equipo; no registran ventas ni reservan existencias.
+
+Para activar los dos enlaces de WhatsApp, completar `site.whatsapp` en `lib/site.ts` con el número oficial y código de país. Cada enlace abre su mensaje preparado, que el cliente debe enviar. Mientras el número esté vacío, los botones permiten preparar y copiar el mensaje, con un aviso de que no se envía. `site.product.pricePerKgCOP` puede configurarse con el precio aprobado por kilogramo en pesos colombianos; `null` muestra «Precio por consultar».
+
+El recorrido animado de cuatro nodos está en `components/process-flow.tsx` y se muestra únicamente en Inicio. Se reproduce al entrar en pantalla y puede repetirse con «Ver recorrido». Se adapta a disposición vertical en móvil y respeta la preferencia de movimiento reducido. No requiere video ni dependencias adicionales.
+
 El equipo todavía no ha facilitado un teléfono o correo oficial. Por eso el formulario **prepara un mensaje local**, que el visitante puede editar, copiar o descargar; no envía ni almacena datos en un servidor. No hay pagos, reservas, cuentas ni una base de datos de clientes.
 
 Cuando el equipo confirme sus canales, completar `whatsapp` (solo dígitos con código de país) o `email` en `lib/site.ts`. El resultado del formulario mostrará entonces el enlace correspondiente para que el visitante comparta su consulta. También debe revisarse el texto informativo de `app/contacto/page.tsx` para reflejar el canal habilitado.
 
-El contenido presenta el emprendimiento como un proyecto en preparación. Antes de abrirlo al público, el equipo debe confirmar el estado de operación, las condiciones del servicio, las presentaciones del compost y los datos de contacto. No se publican cifras de impacto, testimonios o alianzas no confirmadas.
+El contenido presenta el emprendimiento como un proyecto en preparación. Las presentaciones concretas, el precio, la disponibilidad y las condiciones de entrega siguen pendientes de confirmación. No hay carrito ni cobro en línea.
+
+El formulario mantiene la opción general «Sobre el compost», sin asociarla a un peso ni a una compra, y las consultas por recolección. «Proponer alianza» está acotado a acuerdos de recolección o logística de residuos, apoyo técnico al compostaje y comercialización del compost. No ofrece un programa abierto de voluntariado o inscripción. Los enlaces antiguos con `interes=colaborar` siguen abriendo la opción de alianzas.
 
 ## Publicación
 

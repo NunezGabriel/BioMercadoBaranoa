@@ -7,15 +7,15 @@ export const metadata: Metadata = {
     "https://biomercado-baranoa-comunidad.roanox4.chatgpt.site",
   ),
   title: {
-    default: "BioMercado Baranoa · De residuos a oportunidades",
+    default: "BioMercado Baranoa · Compost orgánico",
     template: "%s · BioMercado Baranoa",
   },
   description:
-    "Un proyecto de economía circular en Baranoa, Atlántico. Residuos orgánicos, compost y oportunidades para nuestra comunidad.",
+    "Conoce BioMercado Baranoa, su propuesta de compost por kilogramo y el equipo de emprendedoras que impulsa el aprovechamiento de residuos vegetales.",
   openGraph: {
     title: "BioMercado Baranoa",
     description:
-      "Una nueva vida para nuestros residuos. Un proyecto que nace en comunidad.",
+      "Compost para seguir creciendo. Conoce nuestro producto y a las emprendedoras detrás de BioMercado Baranoa.",
     locale: "es_CO",
     type: "website",
   },

@@ -10,15 +10,16 @@ export default function ContactPage() {
       <Breadcrumb label="Contacto" />
       <section className="contact-page">
         <div className="contact-copy">
-          <Eyebrow>Hay una conversación por comenzar</Eyebrow>
+          <Eyebrow>Producto, recolección y alianzas</Eyebrow>
           <h1>
-            Tu idea también
+            Conoce el compost.
             <br />
-            puede <span>echar raíces.</span>
+            <span>Conversemos.</span>
           </h1>
           <p>
-            ¿Tienes un comercio, te interesa el compost o quieres colaborar?
-            Cuéntanos qué te mueve a ser parte de BioMercado.
+            Consulta por nuestro compost, por la recolección
+            para tu negocio o por una alianza de apoyo técnico, logística o
+            comercialización.
           </p>
           <div className="contact-place">
             <span className="small-round">

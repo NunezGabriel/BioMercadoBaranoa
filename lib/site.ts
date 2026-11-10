@@ -4,14 +4,31 @@ export const site = {
   // Completar con canales aprobados antes de la apertura pública.
   whatsapp: "",
   email: "",
+  product: {
+    name: "Compost BioMercado",
+    // Completar solo cuando el equipo confirme el precio por kilogramo, en COP.
+    pricePerKgCOP: null as number | null,
+  },
   images: {
-    hero: "/images/hero-compost.jpg",
-    collection: "/images/recoleccion.jpg",
-    compost: "/images/compost-producto.jpg",
+    hero: "/images/brote-compost.png",
+    collection: "/images/recoleccion-vegetales.png",
+    compost: "/images/compost-biomercado-bolsa.png",
+    compostDetail: "/images/compost-presentaciones-campo.png",
+    spotlight: "/images/compost-comunidad.png",
     community: "",
   },
 };
 export const faqs = [
+  {
+    question: "¿En qué presentación se ofrecerá el compost?",
+    answer:
+      "La propuesta contempla venta por kilogramo y empaques según la necesidad del comprador. Consulta las presentaciones, el precio y la disponibilidad con el equipo; todavía no hay un catálogo de tamaños definido.",
+  },
+  {
+    question: "¿Para quién está pensado?",
+    answer:
+      "El proyecto contempla compost para agricultores, viveros y personas que cuidan jardines. La orientación de uso se definirá con la validación del producto.",
+  },
   {
     question: "¿BioMercado ya está recogiendo residuos?",
     answer:
@@ -30,11 +47,11 @@ export const faqs = [
   {
     question: "¿Cómo puedo conseguir el compost?",
     answer:
-      "Puedes expresar tu interés como comprador. La disponibilidad, las presentaciones y las condiciones de entrega se definirán después de validar el proceso y la calidad del producto.",
+      "En Nuestro compost puedes solicitar un pedido o hacer una consulta. El equipo deberá confirmar contigo la cantidad, la presentación, el precio y las condiciones de entrega.",
   },
   {
-    question: "¿Puedo colaborar aunque no tenga un negocio?",
+    question: "¿Qué tipo de alianzas busca BioMercado?",
     answer:
-      "Sí. Buscamos conectar con personas y organizaciones interesadas en la educación ambiental, el apoyo técnico y el desarrollo de iniciativas comunitarias. Cuéntanos cómo te gustaría aportar.",
+      "El proyecto busca acuerdos con comercios para separar y entregar residuos, apoyo técnico para el compostaje y aliados para comercializar el compost. Puedes proponer una alianza en alguno de estos ámbitos; cada propuesta se revisará con el equipo.",
   },
 ];

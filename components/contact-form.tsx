@@ -15,18 +15,21 @@ import {
 } from "lucide-react";
 import { site } from "@/lib/site";
 const interests = [
-  { value: "residuos", label: "Entregar residuos", icon: Store },
-  { value: "compost", label: "Conocer el compost", icon: Sprout },
-  { value: "colaborar", label: "Colaborar", icon: Users },
+  { value: "compost", label: "Sobre el compost", message: "conocer más sobre el compost de BioMercado", icon: Sprout },
+  { value: "residuos", label: "Recolección", message: "consultar por la recolección de residuos vegetales de mi negocio", icon: Store },
+  { value: "alianzas", label: "Proponer alianza", message: "proponer una alianza para recolección, apoyo técnico o comercialización del compost", icon: Users },
 ];
 export function ContactForm() {
   const params = useSearchParams();
-  const [interest, setInterest] = useState("residuos");
+  const [interest, setInterest] = useState("compost");
   const [message, setMessage] = useState("");
   const [copyState, setCopyState] = useState("");
   useEffect(() => {
-    const value = params.get("interes");
-    if (interests.some((i) => i.value === value)) setInterest(value!);
+    const requested = params.get("interes");
+    const value = requested === "colaborar" ? "alianzas" : requested;
+    setInterest(interests.some((i) => i.value === value) ? value! : "compost");
+    setMessage("");
+    setCopyState("");
   }, [params]);
   const hasContact = Boolean(site.whatsapp || site.email);
   function prepare(e: FormEvent<HTMLFormElement>) {
@@ -39,7 +42,7 @@ export function ContactForm() {
     const detail = String(data.get("mensaje") || "").trim();
     const label = interests
       .find((i) => i.value === interest)!
-      .label.toLowerCase();
+      .message;
     setMessage(
       `Hola, equipo de BioMercado Baranoa. Soy ${name} y me interesa ${label}.${business ? `\nMi negocio: ${business}.` : ""}\nMi contacto: ${contact}.${detail ? `\n\n${detail}` : ""}\n\nMe gustaría conocer los próximos pasos del proyecto.`,
     );
@@ -70,7 +73,7 @@ export function ContactForm() {
           <Leaf size={23} />
         </span>
         <div>
-          <h2>Empecemos por conocernos.</h2>
+          <h2>Conversemos sobre BioMercado.</h2>
           <p>Prepara una consulta en pocos pasos.</p>
         </div>
       </div>
@@ -82,7 +85,7 @@ export function ContactForm() {
         }}
       >
         <fieldset className="interest-field">
-          <legend>¿Cómo te gustaría participar?</legend>
+          <legend>¿Sobre qué quieres consultar?</legend>
           <div className="interest-options">
             {interests.map((i) => (
               <label
@@ -105,6 +108,13 @@ export function ContactForm() {
               </label>
             ))}
           </div>
+          <p className="interest-description" aria-live="polite">
+            {interest === "compost"
+              ? "Cuéntanos qué quieres saber sobre el compost, su elaboración o las presentaciones previstas."
+              : interest === "residuos"
+                ? "Para comercios del mercado, restaurantes y fruver interesados en la separación y recolección de residuos vegetales."
+                : "Para acordar la entrega o logística de residuos, aportar apoyo técnico al compostaje o comercializar el compost. Describe qué alianza propones."}
+          </p>
         </fieldset>
         <div className="form-fields">
           <label htmlFor="nombre">
@@ -143,11 +153,11 @@ export function ContactForm() {
             />
           </label>
           <label htmlFor="mensaje">
-            ¿Qué tienes en mente? <span>(opcional)</span>
+            {interest === "alianzas" ? "¿Qué alianza propones?" : "Tu consulta"} <span>(opcional)</span>
             <textarea
               id="mensaje"
               name="mensaje"
-              placeholder="Cuéntanos un poco sobre tu interés…"
+              placeholder={interest === "alianzas" ? "Indica tu organización y la propuesta de recolección, apoyo técnico o comercialización…" : "Cuéntanos qué te gustaría saber…"}
               rows={3}
               maxLength={2000}
             />

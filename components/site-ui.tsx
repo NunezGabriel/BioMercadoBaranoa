@@ -117,19 +117,19 @@ export function JoinBanner() {
     <section className="join-banner">
       <Botanical />
       <div className="join-copy">
-        <span className="overline">LO BUENO CRECE CUANDO LO COMPARTIMOS</span>
+        <span className="overline">COMPOST BIOMERCADO · DE VUELTA A LA TIERRA</span>
         <h2>
-          El próximo paso
+          ¿Quieres conocer
           <br />
-          lo damos juntos.
+          nuestro compost?
         </h2>
         <p>
-          Un comercio, un cultivo, una idea. Hay muchas formas de ser parte de
-          BioMercado.
+          Consulta por el producto, su disponibilidad y las condiciones de
+          entrega. Te contamos cómo avanza nuestra propuesta.
         </p>
       </div>
-      <ButtonLink href="/contacto" secondary>
-        Quiero ser parte
+      <ButtonLink href="/compost#consulta-producto" secondary>
+        Consultar por el compost
       </ButtonLink>
     </section>
   );
@@ -141,14 +141,14 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="brand footer-brand">
             <img
-              src="/images/logo-biomercado.png"
-              width="330"
-              height="76"
+              src="/images/logo-biomercado-transparente.png"
+              width="739"
+              height="170"
               alt="BioMercado Baranoa"
             />
           </Link>
           <p>
-            Transformamos residuos en vida.
+            Compost para seguir creciendo.
             <br />
             Una idea que nace y crece en comunidad.
           </p>
