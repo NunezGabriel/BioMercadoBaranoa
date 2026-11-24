@@ -30,7 +30,7 @@ El proyecto es Next.js estándar (App Router) con React y TypeScript. No usa bas
 - `components/site-header.tsx`: navegación de escritorio y móvil.
 - `components/site-ui.tsx`: componentes visuales compartidos y preguntas frecuentes.
 - `components/contact-form.tsx`: preparación, copia y descarga de consultas.
-- `lib/site.ts`: canales de contacto, rutas de imágenes y contenido de preguntas frecuentes.
+- `lib/site.ts`: canales de contacto, rutas de imágenes y codddddddntenido de preguntas frecuentes.
 - `public/images/`: logo e imágenes de referencia.
 - `public/fonts/`: Manrope y su licencia OFL, servidos localmente.
 - `IMAGE_PROMPTS.md`: instrucciones para generar las cuatro imágenes definitivas.
